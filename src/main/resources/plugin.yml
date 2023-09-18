@@ -1,0 +1,4 @@
+name: DailyRewards
+version: '1.0'
+main: me.levitate.dailyrewards.DailyRewards
+api-version: '1.20'

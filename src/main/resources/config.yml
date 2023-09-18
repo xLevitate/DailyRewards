@@ -1,0 +1,10 @@
+commands:
+  - "eco give %player% 1000"
+  - "eco give %player% 500"
+
+messages:
+  offline: "<red>That player is offline."
+  reset: "<green>%player%'s cooldown has been reset."
+  no-cooldown: "<red>That player is not on cooldown."
+  reward: "<green>You have claimed your daily reward."
+  cooldown: "<red>You are currently on cooldown."
