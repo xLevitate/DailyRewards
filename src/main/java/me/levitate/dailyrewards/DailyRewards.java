@@ -15,11 +15,8 @@ import java.util.UUID;
 
 public final class DailyRewards extends JavaPlugin {
     private StorageService storageService;
-
     private PlayerService playerService;
-
     private Configuration configuration;
-
     @Override
     public void onEnable() {
         getConfig().options().copyDefaults(true);

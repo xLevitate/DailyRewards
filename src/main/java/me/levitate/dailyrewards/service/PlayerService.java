@@ -21,7 +21,7 @@ public class PlayerService {
         UUID playerUUID = player.getUniqueId();
         Long time = System.currentTimeMillis() + Duration.ofHours(24).toMillis();
 
-        if (!storageService.getRewardCooldown().containsKey(playerUUID)) {
+        if (!storageService.onCooldown(playerUUID)) {
             ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
 
             for (String s : configuration.getCommands()) {

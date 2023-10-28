@@ -45,17 +45,19 @@ public class StorageService {
             });
         }
 
-        // Checks every 5 seconds for expired cooldowns and removes the players.
-        Bukkit.getScheduler().runTaskTimerAsynchronously(plugin, () -> {
-            for (Map.Entry<UUID, Long> set : rewardCooldown.entrySet()) {
-                if (set.getValue() - System.currentTimeMillis() <= 0) {
-                    rewardCooldown.remove(set.getKey());
-                }
-            }
-        }, 0L, 100L);
-
         // Save data every 5 minutes.
         Bukkit.getScheduler().runTaskTimerAsynchronously(plugin, this::save, 6000L, 6000L );
+    }
+
+    public boolean onCooldown(UUID uuid) {
+        Long cooldown = rewardCooldown.get(uuid);
+
+        if (cooldown - System.currentTimeMillis() <= 0) {
+            rewardCooldown.remove(uuid);
+            return false;
+        }
+
+        return true;
     }
 
     public void save() {
